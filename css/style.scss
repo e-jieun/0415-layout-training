@@ -7,33 +7,14 @@
     @extend %inherit;
     background-color: $color-dg;
     color: #fff;
-    // con1 - menu
-    &>div:nth-child(1){
-      @include width-height($per100, 10%);
-      border: $border-red;
-      position: sticky;
-      nav{
-        @include width-height($per100, $per100);
-        ul{
-          @include width-height($per100, $per100);
-          @include flex-align-justify(center, space-around);
-          list-style-type: none;
-          li{
-            height: inherit;
-            flex-grow: 1;
-            border: $border-bk;
-          }
-        }
-      }
-    }
+    
     // con2 - main con
-    &>div:nth-child(2){
+    &>div:nth-child(1){
       @extend %inherit;
       @extend %flex-center-center;
       @extend %flex-column;
       &>div{
         width: inherit;
-        border: $border-red;
         flex-grow: 1;
       }
       &>div:nth-child(1){
@@ -58,7 +39,6 @@
         &>div:nth-child(1){
           width: inherit;
           flex-grow: 2;
-          border: $border-red;
           @extend %flex-center-center;
           @extend %flex-column;
           &>div:nth-child(1){
@@ -74,6 +54,7 @@
             background-color: rgba($color: #fff, $alpha: .5);
             backdrop-filter: blur(.5);
             @extend %flex-center-center;
+            position: absolute;
             &>div{
               color: #fff;
               opacity: 1;
@@ -104,7 +85,6 @@
           flex-grow: 1;
           @extend %flex-center-center;
           &>div{
-            border: $border-red;
             @include width-height(90%, inherit);
             text-align: center;
             font-size: small;
@@ -117,26 +97,59 @@
         @extend %flex-column;
         &>div:nth-child(1){
           @include width-height($per100, inherit);
+          @extend %flex-center-center;
           &>ul{
+            @include width-height(90%, 5vw);
             @extend %flex-center-center;
-            border: $border-red;
             list-style-type: none;
+            column-gap: 1vw;
             &>li{
               flex-grow: 1;
+              height: 3px;
+              background-color: $color-na;
             }
             &>li:nth-child(1){
-              flex-grow: 5;
+              flex-grow: 10;
+              background-color: $color-lg;
             }
           }
         }
         &>div:nth-child(2){
-          border: $border-red;    
+          @include width-height(90%, $per100);
           @extend %flex-center-center;
           list-style-type: none;
-      
+          column-gap: 2vw;
+          &>div:nth-child(1){
+            height: 90%;            
+            flex-grow: 1.5;
+            background-color: $color-lg;
+            border-radius: 10px;
+          }
+          &>div:nth-child(2){
+            height: 90%;
+            flex-grow: 1;
+            border-radius: 10px;
+            background-color: $color-na;
+            
+          }
         }
       }
+      nav{
+        @include width-height($per100, 10%);
+      position: sticky;
+      bottom: 0;
 
+        ul{
+          @include width-height($per100, $per100);
+          @include flex-align-justify(center, space-around);
+          list-style-type: none;
+          li{
+            height: inherit;
+            flex-grow: 1;
+            border: $border-bk;
+          }
+        }
+      }
     }
   }
 }
