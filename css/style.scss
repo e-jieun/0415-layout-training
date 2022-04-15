@@ -1,5 +1,40 @@
 // @import base.scss
 @import './base.scss';
+// @keyframes
+@keyframes slide1 {
+  0%{
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+  50%{
+    position: absolute;
+    top: 50vh;
+    left: 30vw;
+  }
+  100%{
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+}
+@keyframes slide2 {
+  0%{
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
+  50%{
+    position: absolute;
+    top: 30vh;
+    left: 50vw;
+  }
+  100%{
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
+}
 // style
 #root{
   @extend %view-100;
@@ -55,6 +90,7 @@
             backdrop-filter: blur(.5);
             @extend %flex-center-center;
             position: absolute;
+            z-index: 2;
             &>div{
               color: #fff;
               opacity: 1;
@@ -69,6 +105,8 @@
             top: 30vh;
             background-color: rgb(255, 0, 0);
             opacity: .5;
+            z-index: 1;
+            animation: 3s slide1 infinite;
           }
           &>div:nth-child(3){
             order: 3;
@@ -78,6 +116,8 @@
             top: 50vh;
             background-color: green;
             opacity: .5;
+            z-index: 1;
+            animation: 3s slide2 infinite;
           }
         }
         &>div:nth-child(2){
@@ -136,9 +176,12 @@
       }
       nav{
         @include width-height($per100, 10%);
-      position: sticky;
-      bottom: 0;
-
+        background-color: $color-dg;
+        opacity: .5;
+        position: absolute;
+        // Q1. position: sticky;는 잘 적용되지만 겹쳐지지 않고 아래로 위치만 변경돼서 어떻게 해야 absolute 값을 준 것처럼 적용이 될까요?? 
+        // position: sticky;
+        bottom: 0;
         ul{
           @include width-height($per100, $per100);
           @include flex-align-justify(center, space-around);
@@ -146,7 +189,10 @@
           li{
             height: inherit;
             flex-grow: 1;
-            border: $border-bk;
+            @extend %flex-center-center;
+            i{
+              font-size: 2rem;
+            }
           }
         }
       }

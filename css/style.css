@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-#root #con > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(2), #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul, #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) {
+#root #con > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(2), #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(1), #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul, #root #con > div:nth-child(1) > div:nth-child(3) > div:nth-child(2), #root #con > div:nth-child(1) nav ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,6 +34,78 @@
 
 #root #con > div:nth-child(1) > div:nth-child(1) > ul > li, #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2), #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) {
   border-radius: 100%;
+}
+
+@-webkit-keyframes slide1 {
+  0% {
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+  50% {
+    position: absolute;
+    top: 50vh;
+    left: 30vw;
+  }
+  100% {
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+}
+
+@keyframes slide1 {
+  0% {
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+  50% {
+    position: absolute;
+    top: 50vh;
+    left: 30vw;
+  }
+  100% {
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+  }
+}
+
+@-webkit-keyframes slide2 {
+  0% {
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
+  50% {
+    position: absolute;
+    top: 30vh;
+    left: 50vw;
+  }
+  100% {
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
+}
+
+@keyframes slide2 {
+  0% {
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
+  50% {
+    position: absolute;
+    top: 30vh;
+    left: 50vw;
+  }
+  100% {
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+  }
 }
 
 #root #con {
@@ -102,6 +174,7 @@
   -webkit-backdrop-filter: blur(0.5);
           backdrop-filter: blur(0.5);
   position: absolute;
+  z-index: 2;
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div {
@@ -120,6 +193,9 @@
   top: 30vh;
   background-color: red;
   opacity: .5;
+  z-index: 1;
+  -webkit-animation: 3s slide1 infinite;
+          animation: 3s slide1 infinite;
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) {
@@ -132,6 +208,9 @@
   top: 50vh;
   background-color: green;
   opacity: .5;
+  z-index: 1;
+  -webkit-animation: 3s slide2 infinite;
+          animation: 3s slide2 infinite;
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
@@ -217,8 +296,9 @@
 #root #con > div:nth-child(1) nav {
   width: 100%;
   height: 10%;
-  position: -webkit-sticky;
-  position: sticky;
+  background-color: #181924;
+  opacity: .5;
+  position: absolute;
   bottom: 0;
 }
 
@@ -241,6 +321,9 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  border: 1px solid black;
+}
+
+#root #con > div:nth-child(1) nav ul li i {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
